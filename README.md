@@ -1,6 +1,8 @@
 # Rightmove MCP Server
 
 [![npm version](https://badge.fury.io/js/rightmove-mcp-server.svg)](https://www.npmjs.com/package/rightmove-mcp-server)
+[![CI/CD Pipeline](https://github.com/jmountifield/rightmove-mcp/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/jmountifield/rightmove-mcp/actions/workflows/ci-cd.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Model Context Protocol (MCP) server for accessing Rightmove.co.uk property data. This server provides tools to search properties, get detailed property information, and retrieve area statistics from the UK's largest property portal.
 
@@ -235,11 +237,42 @@ The server includes comprehensive error handling and will return error messages 
 
 ## Contributing
 
+This project uses automated CI/CD with semantic versioning. Here's how to contribute:
+
+### Development Process
+
 1. Fork the repository
-2. Create a feature branch
+2. Create a feature branch: `git checkout -b feat/your-feature`
 3. Make your changes
-4. Add tests for new functionality
-5. Submit a pull request
+4. Ensure tests pass: `npm test && npm run build && node final-test.js`
+5. Commit with conventional commit format: `feat: add new feature`
+6. Submit a pull request
+
+### Commit Message Format
+
+We use [Conventional Commits](https://conventionalcommits.org/) for automatic versioning:
+
+- `feat:` or `minor:` → Minor version bump (new features)
+- `fix:` → Patch version bump (bug fixes)  
+- `major:` or `breaking:` → Major version bump (breaking changes)
+- `docs:`, `style:`, `refactor:`, `test:`, `chore:` → Patch version bump
+
+### Automated Release Process
+
+When you merge a PR to `main`:
+1. 🏗️ **Build & Test**: Runs linting, tests, and builds
+2. 📦 **Version**: Automatically bumps version based on commit message
+3. 🚀 **Publish**: Publishes new version to NPM
+4. 🏷️ **Tag**: Creates git tag and GitHub release
+5. 📝 **Release Notes**: Auto-generated from commits
+
+### Manual Releases
+
+Maintainers can trigger manual releases via GitHub Actions:
+1. Go to **Actions** → **Manual Release**
+2. Choose version bump type (major/minor/patch)
+3. Add optional release notes
+4. Run workflow
 
 ## License
 

@@ -84,3 +84,29 @@ The server integrates with MCP clients (like Claude Desktop) using:
   }
 }
 ```
+
+## CI/CD and Release Process
+
+This project uses automated CI/CD with GitHub Actions:
+
+### Workflows
+- **ci-cd.yml**: Main pipeline for testing, versioning, and publishing on main branch pushes
+- **pr-validation.yml**: Validates pull requests with testing and checks
+- **manual-release.yml**: Allows manual releases with custom version bumps
+
+### Versioning Strategy
+- Uses conventional commits for semantic versioning
+- `major:` or `breaking:` → Major version bump
+- `feat:` or `minor:` → Minor version bump
+- All other commits → Patch version bump
+
+### Release Process
+1. PR merged to main triggers automatic versioning
+2. Package is built and published to NPM
+3. Git tag and GitHub release are created
+4. NPM_TOKEN secret handles authentication
+
+### Testing in CI
+- Runs `npm run lint`, `npm test`, `npm run build`
+- Executes `node final-test.js` for MCP server validation
+- Validates package.json structure and bin configuration
