@@ -12,17 +12,29 @@
     "start": "node build/index.js",
     "dev": "tsx src/index.ts",
     "lint": "eslint src/",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "mcp",
     "rightmove",
     "property",
     "real-estate",
-    "uk"
+    "uk",
+    "model-context-protocol",
+    "claude",
+    "ai"
   ],
-  "author": "Your Name",
+  "author": "Claude Code",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmountifield/rightmove-mcp.git"
+  },
+  "homepage": "https://github.com/jmountifield/rightmove-mcp",
+  "bugs": {
+    "url": "https://github.com/jmountifield/rightmove-mcp/issues"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.4.0",
     "axios": "^1.6.0",
