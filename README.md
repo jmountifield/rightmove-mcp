@@ -1,6 +1,10 @@
 # Rightmove MCP Server
 
+[![npm version](https://badge.fury.io/js/rightmove-mcp-server.svg)](https://www.npmjs.com/package/rightmove-mcp-server)
+
 A Model Context Protocol (MCP) server for accessing Rightmove.co.uk property data. This server provides tools to search properties, get detailed property information, and retrieve area statistics from the UK's largest property portal.
+
+**✨ Now available on NPM! Use `npx rightmove-mcp-server` to get started instantly.**
 
 ## Features
 
@@ -8,7 +12,36 @@ A Model Context Protocol (MCP) server for accessing Rightmove.co.uk property dat
 - **Property Details**: Get detailed information about specific properties including images, descriptions, and agent details
 - **Area Statistics**: Retrieve market data and price statistics for specific areas
 
-## Installation
+## Quick Start
+
+### Using NPX (Recommended)
+
+The easiest way to use this MCP server is with npx:
+
+```bash
+npx rightmove-mcp-server
+```
+
+No installation required! This will automatically download and run the latest version.
+
+### Using with MCP Clients
+
+To use with Claude Desktop or other MCP clients, add this configuration:
+
+```json
+{
+  "mcpServers": {
+    "rightmove": {
+      "command": "npx",
+      "args": ["rightmove-mcp-server"]
+    }
+  }
+}
+```
+
+## Installation for Development
+
+If you want to modify or contribute to this project:
 
 1. Clone this repository
 2. Install dependencies:
@@ -21,15 +54,13 @@ npm install
 npm run build
 ```
 
-## Usage
-
-### Running the Server
+### Running for Development
 
 ```bash
 npm start
 ```
 
-Or for development:
+Or for development with auto-reload:
 ```bash
 npm run dev
 ```
@@ -92,9 +123,9 @@ Get price statistics and market data for an area.
 
 ## Configuration
 
-### MCP Client Configuration
+### Alternative MCP Client Configuration
 
-To use this server with an MCP client (like Claude Desktop), add the following to your MCP configuration:
+If you've installed the package locally instead of using npx, you can use:
 
 ```json
 {
@@ -102,6 +133,18 @@ To use this server with an MCP client (like Claude Desktop), add the following t
     "rightmove": {
       "command": "node",
       "args": ["/path/to/rightmove-mcp-server/build/index.js"]
+    }
+  }
+}
+```
+
+For global npm installation (`npm install -g rightmove-mcp-server`):
+
+```json
+{
+  "mcpServers": {
+    "rightmove": {
+      "command": "rightmove-mcp-server"
     }
   }
 }
